@@ -1,53 +1,41 @@
 import Layout from "../layouts";
 import styled from "styled-components";
 import Header from "../components/pages/home/header";
-import AboutUs from "../components/pages/home/aboutus";
-import CountUp from "../components/pages/home/count";
-import ChooseUs from "../components/pages/home/chooseus";
-import ServicesHome from "../components/pages/home/services";
-import Teams from "../components/pages/home/teams";
-import CallToAction from "../components/pages/home/call-to-action";
-import News from "../components/pages/home/news";
-import { fetchIndexProducts } from "../../lib/db/hasura";
+import Banner from "../components/pages/home/banner";
+import ProductsSlider from "../components/pages/home/productsSlider";
+import Categories from "../components/pages/home/categories";
+import SuggestedProducts from "../components/pages/home/suggestedProducts";
+import Banner2 from "../components/pages/home/banner2";
+import DownloadApp from "../components/pages/home/downloadApp";
 
-export async function getStaticProps(context) {
-     const products = await fetchIndexProducts(6);
+
+function Main() {
      
-     return {
-          props: {
-               products
-          },
-          revalidate: 90, // In seconds
-     };
-}
-
-
-function Main({products}) {
- 
      
-     return    (
+     return (
           <$Main >
-               {/*<Features />*/}
-               <AboutUs />
-               <CountUp/>
-               <ChooseUs/>
-               <ServicesHome/>
-               <Teams products={products}/>
-               <CallToAction/>
-               <News/>
+               <Banner />
+               <ProductsSlider/>
+               <Banner reverse={true}/>
+               <Categories/>
+               <SuggestedProducts/>
+               <ProductsSlider popular={true}/>
+               <Banner2 />
+               <DownloadApp/>
+
           </$Main >
      );
 }
 
-export default function Home({products}) {
-    
+export default function Home() {
+     
      
      return (
           <>
-               <Layout title = { "Vista - home page" } >
+               <Layout title = { "Vitsell - home page" } >
                     <$HomePageGrid >
                          <Header />
-                         <Main products={products ? products : []}/>
+                         <Main />
                     </$HomePageGrid >
                
                </Layout >
@@ -57,20 +45,15 @@ export default function Home({products}) {
 }
 
 const $HomePageGrid = styled.div`
-
+     margin : 1.8rem 0;
 `;
 
 const $Main = styled.main`
-     width                 : 100%;
-     grid-column           : 1/-1;
-     display               : grid;
+     width         : 100%;
+     display       : grid;
+     align-content : start;
+     grid-row-gap  : 9vh;
      grid-template-columns : minmax(5%, 10%) 1fr minmax(5%, 10%);
-     grid-row-gap          : 14vh;
-     max-width             : 140rem;
+   
      margin                : 0 auto;
-     align-content         : start;
-     @media only screen and (max-width : 40em) {
-          grid-row-gap          : 8vh;
-
-          }
 `;

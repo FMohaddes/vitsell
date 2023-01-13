@@ -3,90 +3,80 @@ import styled from "styled-components";
 import Image from "next/image";
 import CustomButton from "../common/customButtons";
 import { BodyIntro , Caption , H1 , H2 } from "../../styles/global";
-import NewsCard from "./newsCard";
+import { numberSeparator } from "../../utils/formatNumber";
 
 HeaderCard.defaultProps = {
-     subtitle : "WE ARE HERE TO" ,
-     title    : "PLANNING BUSINESS" ,
-     src      : "/images/man2.png" ,
-     text     : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim, laudantium." ,
+     price   : "100" ,
+     title   : "همزن برقی sanford" ,
+     src     : "/images/headerMobile.png" ,
+     sale    : "99" ,
+     percent : "50" ,
      
 }
 
-function HeaderCard( {id, title , src , subtitle , text,noBox } ) {
+function HeaderCard( { id , percent , title , src , price , sale , noBox } ) {
      const [ imgUrl , setImgUrl ] = useState( src )
      const handleImgError = () => {
-          setImgUrl( "/images/man2.png" )
+          setImgUrl( "/images/headerMobile.png" )
      }
      return (
           <$Wrapper >
-               <$ImageBox >
-                    <Image
-                         src = { src }
-                         alt = { title }
-                         objectPosition = { "50% 30%" }
-                         fill
-                         sizes = "(max-width: 768px) 100vw,
+               {
+                    noBox ?
+                         <$AdImage >
+                              <Image
+                                   src = { src }
+                                   alt = { title }
+                                   objectPosition = { "90% 30%" }
+                                   
+                                   fill
+                                   sizes = "(max-width: 768px) 100vw,
                                   (max-width: 1200px) 50vw,
                                    33vw"
-                         objectFit = { "cover" }  quality = { 100 }
-                    />
-               </$ImageBox >
-               <$Shape >
-               
-               </$Shape >
-               {
-                    !noBox &&
-                    <$TextBox >
-                         <Caption >
-                              { subtitle }
-                         </Caption >
-                         <H1 >
-                              { title }
-                         </H1 >
-                         <BodyIntro >
-                              { text }
-                         </BodyIntro >
-                         {
-                              id === 1 ?
-                                   <$SearchBox >
-                                        <CustomButton >
+                                   objectFit = { "cover" } quality = { 100 }
+                              />
+                         </$AdImage >
+                         :
+                         <$Box >
                               
-                                             <Caption >
-                                                  <a target = { "_blank" }
-                                                       href = "https://drive.google.com/file/d/1OQqi4Ulb2vUN2DKE7e2kziVj-5DKuP6a/view?usp=sharing" >
-                                                       Download The Catalog
-                                                  </a >
+                              <$ImageBox >
+                                   <Image
+                                        src = { src }
+                                        alt = { title }
+                                        fill
+                                        objectPosition = { "50% 50%" }
+                                        
+                                        sizes = "(max-width: 768px) 100vw,
+                                  (max-width: 1200px) 50vw,
+                                   33vw"
+                                        objectFit = { "contain" } quality = { 100 }
+                                   />
+                              </$ImageBox >
+                              <$Info >
+                                   <H2 >
+                                        { title }
+                                   </H2 >
+                                   <$Price >
+                                        <Caption >
+                                             { numberSeparator( price ) }<span >تومان</span >
+                                        </Caption >
+                                   
+                                   </$Price >
+                                   <$Sale >
+                                        <div >
+                                             <span >{ percent }%</span >
+                                        </div >
+                                        <Caption >
+                                             { numberSeparator( sale ) }
+                                        </Caption >
+                                   </$Sale >
                               
-                                             </Caption >
-                         
-                                        </CustomButton >
-                                   </$SearchBox >
-                                   : id === 3 &&
-                                   <$SearchBox >
-                                        <CustomButton >
-                              
-                                             <Caption >
-                                                  <a target = { "_blank" }
-                                                       href = "https://drive.google.com/file/d/1JJHSQUhT91I6HhLcBhirm3Tq34YO8856/view?usp=sharing" >
-                                                       Download The Catalog
-                                                  </a >
-                              
-                                             </Caption >
-                         
-                                        </CustomButton >
-                                   </$SearchBox >
-               
-                         }
-     
-                    </$TextBox >
-     
+                              </$Info >
+                         </$Box >
+                    
+                    
                }
-               {/*<CustomButton >*/ }
-               {/*     <Caption >*/ }
-               {/*          SERVICES*/ }
-               {/*     </Caption >*/ }
-               {/*</CustomButton >*/ }
+          
           </$Wrapper >
      
      
@@ -97,136 +87,115 @@ function HeaderCard( {id, title , src , subtitle , text,noBox } ) {
 export default HeaderCard;
 
 const $Wrapper = styled.div`
-     background      : ${ p => p.theme.primaryColorDarker };
-     background-size : cover;
-     width           : 100%;
-     height          : 100%;
-     position        : relative;
-     display         : flex;
-     overflow        : hidden;
-     align-content   : start;
-     align-items     : center;
-     //background      : ${ p => `url(${ p.src })` };
-     background-size: cover;
-     background-position: top center;
-     
-     
-
+     background          : ${ p => p.theme.greyBoxBG };
+     background-size     : cover;
+     width               : 100%;
+     height              : 100%;
+     position            : relative;
+     display             : flex;
+     overflow            : hidden;
+     align-content       : start;
+     align-items         : center;
+     background-size     : cover;
+     background-position : top center;
 `
-
-const $ImageBox = styled.div`
+const $AdImage = styled.div`
      position : absolute;
      bottom   : 0;
      right    : 0;
      width    : 100%;
      height   : 100%;
-
-     > * {
-          //filter          : sepia(100%) hue-rotate(180deg);
-
-          object-position : right center;
-          }
-
-
-
 `
-
-const $TextBox = styled.div`
-     display          : grid;
-     justify-content  : start;
-     justify-items    : start;
-     z-index          : 100;
-     background-color : ${ p => p.theme.primaryColorDarker };
-     border           : ${ p => p.theme.border.borderDark };
-     padding          : 3.2rem 0 3.2rem 3.2rem;
-     width            : 40%;
-     text-align       : left;
-     @media only screen and (max-width : 55em) {
-          width : 60%;
-          
-          }
-
-     > * {
-          :nth-child(1) {
-               font-size     : 3.2rem;
-               color         : ${ p => p.theme.secondaryColorMain };
-               margin-bottom : -1.2rem;
-               @media only screen and (max-width : 40em) {
-                    font-size : 2rem;
-                    width:90%;
-
-                    }
-               }
-
-          :nth-child(3) {
-               color       : ${ p => p.theme.white };
-               line-height : 120%;
-               margin-top  : -2.2rem;
-               @media only screen and (max-width : 40em) {
-                    font-size  : 2.4rem;
-                    margin-top : -1.5rem;
-                    width:90%;
-                    }
-
-               }
-          }
-
-     h1 {
-          color : ${ p => p.theme.white };
-
-          @media only screen and (max-width : 40em) {
-               font-size : 3.6rem;
-               width:95%;
-
-               }
-          /*   width: 22ch;
-             animation: typing 2s steps(22), blink .5s step-end infinite alternate;
-             white-space: nowrap;
-             overflow: hidden;
-             border-right: 3px solid;
-             font-family: monospace;
-             font-size: 2em;*/
-          }
-
-     /*  @keyframes typing {
-            from {
-                 width: 0
-                 }
-            }
-  
-       @keyframes blink {
-            50% {
-                 border-color: transparent
-                 }
-            }*/
-     }
-
-
+const $Box = styled.div`
+     height             : 100%;
+     width              : 100%;
+     display            : grid;
+     grid-template-rows : 50% 50%;
+     position           : relative;
 `
-
-const $SearchBox = styled.div`
-     height       : 5rem;
-     width        : 20rem;
-     justify-self : start;
-     margin-top   : 2.4rem;
-     a{
-          color       : ${ p => p.theme.white };
-
-          }
-
-`
-
-const $Shape = styled.div`
+const $ImageBox = styled.div`
      position   : absolute;
+     top        : 1rem;
+     right      : 0;
      width      : 100%;
-     height     : 100%;
-     clip-path       : polygon(-50% -20%, 70% 0%, 20% 100%, 0% 100%);
-   z-index: 1;
+     height     : 50%;
+     text-align : center;
 
-     @media only screen and (max-width : 40em) {
-          left       : -10vw;
-          clip-path       : polygon(-50% -20%, 90% 0%, 40% 100%, 0% 100%);
+`
+
+const $Info = styled.div`
+     grid-row      : 2/3;
+     margin-top    : 20%;
+     width         : 100%;
+     display       : grid;
+     padding       : 0 1.4rem;
+     align-content : start;
+
+     h2 {
+          align-self    : start;
+          justify-self  : start;
+          font-size     : 1.6rem;
+          font-weight   : 900;
+          margin-bottom : 4.4rem;
+          color         : ${ p => p.theme.textColorDark };
 
           }
 
 `
+const $Price = styled.div`
+     justify-self   : end;
+     display        : flex;
+     flex-direction : column;
+
+     p {
+          font-weight   : 700;
+          font-size     : 2rem;
+
+          span {
+               font-size   : 1.2rem;
+               font-weight : 100;
+
+               }
+
+          }
+
+
+
+
+`
+
+const $Sale = styled.div`
+     display         : flex;
+     justify-content : space-between;
+
+     p {
+          font-size            : 2rem;
+          margin-bottom        : .8rem;
+          color                : ${ p => p.theme.textColorLight };
+          font-weight          : 100;
+          justify-self         : end;
+          align-self           : center;
+
+          font-family          : "IRANSansLight", sans-serif;
+          position             : relative;
+          text-decoration-line : line-through;
+          }
+
+     div {
+          display         : flex;
+          justify-content : center;
+          align-content   : center;
+          align-items     : center;
+          font-size       : 1.4rem;
+          font-family     : "IRANSansBold", sans-serif;
+
+          color           : ${ p => p.theme.white };
+          background      : ${ p => p.theme.primaryColorGradient };
+          width           : 4.8rem;
+          height          : 3rem;
+          border-radius   : ${ p => p.theme.border.borderRadius2 };
+          }
+
+`
+
+

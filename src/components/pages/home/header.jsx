@@ -8,115 +8,128 @@ import "swiper/css/pagination";
 import "swiper/css/bundle";
 // import required modules
 import { Swiper , SwiperSlide } from "swiper/react";
-import { Autoplay , Pagination } from "swiper";
+import { Autoplay } from "swiper";
 import HeaderCard from "../../cards/headerCard";
-import { H3 } from "../../../styles/global";
-import Image from "next/image";
+import { Navigation ,Pagination } from "swiper";
+import "swiper/css/navigation";
+import { device } from "../../../styles/global";
 
 export default function Header( { type , text } ) {
-     const [ state ] = useState( [
+     const [ adSlider ] = useState( [
                {
-                    src   : "/images/year.jpg" ,
+                    src   : "/images/headerMobile.png" ,
                     id    : 0 ,
                     noBox : true
                     
                } ,
                {
-                    subtitle : "WE ARE HERE TO" ,
-                    title    : "CHANGE THE COLOR OF YOUR LIFE" ,
-                    src      : "/images/arian.jpg" ,
-                    id       : 1 ,
-                    text     : "Getting such prices and services has never been this easy and we are proud" +
-                         " of this" ,
-               } ,
-               {
-                    title    : "WE PROVIDE WHAT YOU WANT" ,
-                    subtitle : "ALL AROUND THE WORLD" ,
-                    src      : "/images/team5.jpg" ,
-                    id       : 2 ,
-                    text     : "kitchenware, home appliances, disposable tableware, comestibles, clothing ,petrochemical materials" ,
-               } , {
-                    title    : "BECAUSE QUALITY IS UNBREAKABLE!" ,
-                    subtitle : "WHY WE ARE THE BEST" ,
-                    src      : "/images/granul.jpg" ,
-                    id       : 3 ,
-                    text     : "With our high quality products you have nothing to worry about! Buy and sell to expand your business." ,
+                    src   : "/images/headerMobile.png" ,
+                    id    : 0 ,
+                    noBox : true
+                    
+               } ,        {
+                    src   : "/images/headerMobile.png" ,
+                    id    : 0 ,
+                    noBox : true
+                    
+               } ,        {
+                    src   : "/images/headerMobile.png" ,
+                    id    : 0 ,
+                    noBox : true
+                    
                } ,
           
           ] ,
      );
+     const [ productsSlider ] = useState( [
+               {
+                    src   : "/images/blender.png" ,
+                    id    : 0 ,
+                    price:4343000,
+                    percent:34,
+                    sale:4300000,
+                    title   : "همزن برقی sanford" ,
      
+     
+               } ,   {
+                    src   : "/images/blender.png" ,
+                    id    : 0 ,
+                    price:4343000,
+                    percent:34,
+                    sale:4300000,
+               title   : "همزن برقی sanford" ,
+          
+          
+          } ,
+          
+          ] ,
+     );
      return (
           <>
-               {
-                    type === "image" || type === "product" ?
-                         <$WrapperImage >
-                              <$ImageBox >
-                                   <Image
-                                        src = { type === "product" ? "/images/glasses.jpg" :
-                                             "/images/call-to-action.jpg"
-                                        }
-                                        alt = { "call-to-action" }
-                                        objectPosition = { "50% 50%" }
-                                        fill
-                                        sizes = "(max-width: 768px) 100vw,
-                                  (max-width: 1200px) 50vw,
-                                   33vw"
-                                        objectFit = { "cover" }
-                                        quality = { 30 }
-                                   />
-                              </$ImageBox >
-                              <$TextBox >
-                                   <H3 >
-                                        { text }
-                                   </H3 >
-                              
-                              </$TextBox >
-                         </$WrapperImage >
-                         
-                         :
-                         <$Wrapper >
-                              <Swiper
-                                   pagination = { {
-                                        dynamicBullets : true ,
-                                   } }
-                                   modules = { [ Pagination , Autoplay ] }
-                                   spaceBetween = { 30 }
-                                   // centeredSlides={true}
-                                   autoplay = { {
-                                        delay                : 2500 ,
-                                        disableOnInteraction : false ,
-                                   } }
-                                   // navigation={true}
-                                   className = "mySwiper" >
-                                   {
-                                        state.map( ( { id , ...otherprops } ) => (
-                                             <SwiperSlide >
-                                                  <HeaderCard key = { id }
-                                                       { ...otherprops } id = { id } />
-                                             </SwiperSlide >
-                                        
-                                        ) )
-                                   }
-                              </Swiper >
-                         </$Wrapper >
+               
+               <$Wrapper >
+                    <$AdsSlider >
+                         <Swiper
+                              pagination = { {
+                                   dynamicBullets : true ,
+                              } }
+                              modules = { [ Navigation,Pagination , Autoplay ] }
+                              spaceBetween = { 30 }
+                              // centeredSlides={true}
+                              autoplay = { {
+                                   delay                : 2500 ,
+                                   disableOnInteraction : false ,
+                              } }
+                              navigation = { true }
+                              className = "mySwiper" >
+                              {
+                                   adSlider.map( ( { id , ...otherprops } ) => (
+                                        <SwiperSlide >
+                                             <HeaderCard key = { id }
+                                                  { ...otherprops } id = { id } />
+                                        </SwiperSlide >
+                                   
+                                   ) )
+                              }
+                         </Swiper >
                     
-               }
+                    </$AdsSlider >
+                    <$ProductsSlider >
+                         <Swiper
+                         
+                              modules = { [ Navigation , Autoplay ] }
+                              spaceBetween = { 30 }
+                              // centeredSlides={true}
+                              autoplay = { {
+                                   delay                : 2500 ,
+                                   disableOnInteraction : false ,
+                              } }
+                              navigation = { true }
+                              className = "mySwiper" >
+                              {
+                                   productsSlider.map( ( { id , ...otherprops } ) => (
+                                        <SwiperSlide >
+                                             <HeaderCard key = { id }
+                                                  { ...otherprops } id = { id } />
+                                        </SwiperSlide >
+                                   
+                                   ) )
+                              }
+                         </Swiper >
+                    
+                    </$ProductsSlider >
+               </$Wrapper >
+          
           </>
      )
 }
 
 const $Wrapper = styled.header`
-     width         : 100%;
-     height        : 80vh;
-     border-bottom : ${ p => p.theme.border.borderDark };
-     border-right  : ${ p => p.theme.border.borderDark };
-     border-left   : ${ p => p.theme.border.borderDark };
-     position      : relative;
-     @media only screen and (max-width : 40em) {
-          height : 50vh;
-
-          }
+     width    : 100%;
+     height   : 38rem;
+     display  : flex;
+     gap      : 1.6%;
+     position : relative;
 
      .swiper {
           width  : 100%;
@@ -130,66 +143,73 @@ const $Wrapper = styled.header`
 
           }
 
-     .swiper-pagination-bullet {
-          background : ${ p => p.theme.black };
+     .swiper-button-prev {
+          color: transparent !important;
 
-          }
-`
-const $WrapperImage = styled.header`
+          right: 0;
 
-     border-bottom         : ${ p => p.theme.border.borderDark };
-     border-right          : ${ p => p.theme.border.borderDark };
-     border-left           : ${ p => p.theme.border.borderDark };
-     padding               : 0 10%;
-     margin-bottom         : 16vh;
-     position              : relative;
-     height                : 45rem;
-          //background            : ${ p => p.theme.secondaryColorMain };
+          ::before {
+               
+               content            : '';
+               display            : inline-block;
+               margin-left: -110%;
 
-     border                : ${ p => p.theme.border.borderDark };
-     //background            : url("/images/call-to-action.jpg") ;
-     background-size       : cover;
-     background-attachment : fixed;
-     display               : flex;
-     justify-content       : start;
-     align-content         : center;
-     align-items           : center;
-
-     @media only screen and (max-width : 55em) {
-          padding : 0 5%;
-          }
-     @media only screen and (max-width : 40em) {
-          margin-bottom : 10vh;
-
-          }
-
-`
-const $TextBox = styled.div`
-     background : ${ p => p.theme.black };
-     text-align : left;
-     z-index    : 55;
-     padding    : 4.8rem;
-
-     h3 {
-          font-size   : 4.8rem;
-          font-weight : 700;
-          @media only screen and (max-width : 55em) {
-               font-size : 4rem;
-
+               background : url('/images/Arrow.svg');
+               height             : 9.3rem;
+               width              : 3.5rem;
                }
           }
 
-`
-const $ImageBox = styled.div`
-     position : absolute;
-     bottom   : 0;
-     right    : 0;
-     width    : 100%;
-     height   : 100%;
-     z-index  : 22;
+     .swiper-button-next {
+          //visibility: hidden;
+          color: transparent !important;
 
-     > * {
-          filter          : sepia(100%) hue-rotate(180deg);
-          object-position : right top;
+          left: 0;
+
+          ::before {
+
+               content            : '';
+               display            : inline-block;
+               margin-left: -110%;
+               transform: scale(-1);
+
+               background : url('/images/Arrow.svg');
+               height             : 9.3rem;
+               width              : 3.5rem;
+               }
+          }
+     .swiper-pagination-bullet {
+          background : ${ p => p.theme.black };
+          background : ${ p => p.theme.primaryColorDark };
+
+          }
+     .swiper-pagination-bullet-active {
+          width: 3rem;
+          border-radius: .5rem;
+
+          }
+
+
+`
+
+const $AdsSlider = styled.div`
+     width         : 75%;
+     overflow      : hidden;
+     border-radius : ${ p => p.theme.border.borderRadius2 };
+     @media only screen and ${ device.tablet } {
+          width         : 100%;
+
+
           }
 `
+const $ProductsSlider = styled.div`
+     width         : 23.6%;
+     border-radius : ${ p => p.theme.border.borderRadius1 };
+     overflow      : hidden;
+     @media only screen and ${ device.tablet } {
+         display: none;
+
+          }
+
+`
+

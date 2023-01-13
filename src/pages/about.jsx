@@ -8,7 +8,7 @@ import Clients from "../components/pages/about/clients";
 export default function About() {
      return (
           <>
-               <Layout title = { "Vista - about page" } >
+               <Layout title = { "Vitsell - about page" } >
                          <Header type = "image" text = { "ABOUT US" }/>
                     <$Wrapper>
                     <AboutUsContent />

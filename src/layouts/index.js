@@ -26,6 +26,6 @@ export default function Layout( { title , children , keywords , description } ) 
 }
 
 Layout.defaultProps = {
-     title : "Vista" ,description:"experts" ,keywords: "experts "
+     title : "Vitsell" ,description:"experts" ,keywords: "experts "
      
 }

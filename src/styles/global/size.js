@@ -9,7 +9,7 @@ export const size = {
      space8  : "4.8rem" ,
      space9  : "6.4rem" ,
      space10 : "8.0rem" ,
-     radius1 : "1rem",
+     radius1 : "2rem",
      radius2 : "4rem"
 }
 
@@ -17,7 +17,7 @@ export const size = {
 export const device = {
      mobileS  : `(max-width: 32em)` ,
      mobileM  : `(max-width: 37em)` ,
-     mobileL  : `(max-width: 57em)` ,
+     tabletS  : `(max-width: 57em)` ,
      tablet   : `(max-width: 76em)` ,
      laptop  : `(max-width:128em)` ,
      desktopL : `(max-width: 192em)`

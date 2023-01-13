@@ -1,144 +1,171 @@
-import React , { useEffect , useRef , useState } from "react"
+import React from "react"
 import styled from "styled-components";
 import Logo from "../assets/Logo";
-import { BodyIntro , Caption , H3 } from "../styles/global";
-import FaceBook from "../assets/icons/facebook";
-import Linkedin from "../assets/icons/linkedin";
+import { Caption , device , H1 } from "../styles/global";
+import Call from "../assets/icons/call";
+import Send from "../assets/icons/send";
+import Map from "../assets/icons/map";
 import Instagram from "../assets/icons/Instagram";
-import FormInput from "../components/common/form/form-input";
-import CustomButton from "../components/common/customButtons";
-import Link from "next/link";
-import { useRouter } from "next/router";
+import SendUp from "../assets/icons/sendup";
+import Whatsapp from "../assets/icons/whatsapp";
+import Image from "next/image";
 
 function Footer() {
-   
+     const quickAccess = [ "درباره ما" , "  تماس با ما" , "   حریم خصوصی" , "    شرایط بازگشت کالا" ]
+     const products = [ "کالای دیجیتال" , "سوپرمارکت" , "گوشی موبایل" , "لوازم تحریر" , "ابزار الات" ]
      
-     const [ services ] = useState( [
-               {
-                    title : "SUPPLIER OF YOUR PRODUCTS" ,
-                    src   : "/images/new1.jpg" ,
-                    id    : 1 ,
-                    text  : "The role of our company in a business is to provide high-quality products from a manufacturer at a good price to a distributor or retailer for resale. Due to this Vista Experts are flexible and understand how to manage relationships. With our help, grow your business by selling to customers around the world.  If you need a specific product, we can provide it for you wherever you are in the world.  We will do our best to get the goods to you at the lowest possible price. Our biggest pride is providing quality products at very low prices.  The conditions of your order are carefully checked by our experts.  We have consultants who can find business partners for your products in 30 countries around the world. we comply with all relevant laws and standards, including human rights protection and child labor.Contact our experts for advice and to receive the catalog and place orders in retail and wholesale. " ,
-               } , {
-                    title : "SUPPLIER OF DISPOSABLE CONTAINERS" ,
-                    src   : "/images/glasses.jpg" ,
-                    id    : 2 ,
-                    text  : "The role of our company in a business is to provide high-quality products from a manufacturer at a good price to a distributor or retailer for resale. Due to this Vista Experts are flexible and understand how to manage relationships. With our help, grow your business by selling to customers around the world.  If you need a specific product, we can provide it for you wherever you are in the world.  We will do our best to get the goods to you at the lowest possible price. Our biggest pride is providing quality products at very low prices.  The conditions of your order are carefully checked by our experts.  We have consultants who can find business partners for your products in 30 countries around the world. we comply with all relevant laws and standards, including human rights protection and child labor.Contact our experts for advice and to receive the catalog and place orders in retail and wholesale. " ,
-               } , {
-                    title : "GRANULE SUPPLIER" ,
-                    src   : "/products/granule.jpg" ,
-                    id    : 3 ,
-                    text  : "The role of our company in a business is to provide high-quality products from a manufacturer at a good price to a distributor or retailer for resale. Due to this Vista Experts are flexible and understand how to manage relationships. With our help, grow your business by selling to customers around the world.  If you need a specific product, we can provide it for you wherever you are in the world.  We will do our best to get the goods to you at the lowest possible price. Our biggest pride is providing quality products at very low prices.  The conditions of your order are carefully checked by our experts.  We have consultants who can find business partners for your products in 30 countries around the world. we comply with all relevant laws and standards, including human rights protection and child labor.Contact our experts for advice and to receive the catalog and place orders in retail and wholesale. " ,
-               } ,
-          
-          ] ,
-     );
-     const router = useRouter();
      
-     const inputElement = useRef( null );
-     
-     useEffect( () => {
-          if ( inputElement.current ) {
-               inputElement.current.focus();
-          }
-     } , [] );
      return (
           < $Wrapper >
-               <$BrandDes >
+               
+               <$About >
                     <Logo />
-                    
-                    <BodyIntro >
-                         Vista company started it's activity in 2015 by improving the quality of international trade. And now we are proud to have more than a dozen active experts around the world. We are a multipurpose company who have been working in various fields such as kitchenware, home appliances, disposable tableware, foodstuffs, clothing ,petrochemical materials
-
-
-
-                    </BodyIntro >
+                    <H1 >
+                         ویتسل
+                    </H1 >
+                    <Caption >
+                         صرافی هفت ارز پلتفرم ایمن و سریع برای انجام معاملات ارز دیجیتال در بستری مطمئن
+                    </Caption >
+               
+               </$About >
+               <$QuickAccess >
+                    <H1 >
+                         با ویتسل
+                    </H1 >
+                    {
+                         quickAccess.map( link =>
+                              (
+                                   <Caption >
+                                        { link }
+                                   </Caption >
+                              )
+                         )
+                    }
+               
+               </$QuickAccess >
+               <$Products >
+                    <H1 >
+                         محصولات ویتسل
+                    </H1 >
+                    {
+                         products.map( link =>
+                              (
+                                   <Caption >
+                                        { link }
+                                   </Caption >
+                              )
+                         )
+                    }
+               </$Products >
+               <$Info >
+                    <H1 >
+                         ارتباط با ویتسل
+                    </H1 >
+                    <$Item >
+                         <Send />
+                         <Caption >
+                              vitdell@gmail.com
+                         </Caption >
+                    </$Item >
+                    <$Item >
+                         <Call />
+                         <Caption >
+                              ۰۸۴۷۷۴۷۳۲۲
+                         </Caption >
+                    </$Item >
+                    <$Item >
+                         <Map />
+                         <Caption >
+                              خیابان ولی عصرنرسیده به سینما
+                              آفریقا
+                         </Caption >
+                    </$Item >
                     
                     <$SocialMedia >
-                         FOLLOW US ON :
-                         
-                         <FaceBook />
-                         <Linkedin />
-                         <Instagram />
+                         <div >
+                              <Instagram />
+                         </div >
+                         <div >
+                              <SendUp />
+                         </div >
+                         <div >
+                              <Whatsapp />
+                         </div >
                     </$SocialMedia >
-               </$BrandDes >
-               <$Box >
-                    <$quickAccess >
-                         <H3 >
-                         SERVICES
-                         </H3 >
-                         <div>
-                              {
-                                   services.map( ( { title } , index ) => {
-                                        return <>
-                                             <Caption key = { index }>
-                                               
-                                                  {/*<Link legacyBehavior href = { `/services/${ title }` } >*/}
-                                                       <a >    {title}</a >
-                                                  {/*</Link>*/}
-                                             </Caption >
-                                        
-                                        
-                                        </>
-               
-                                   } )
-                              }
-                         </div>
-                       
-                    
-                    </$quickAccess >
-                    <$Info >
-                         <H3 >
-                              CONTACT INFO
-                         </H3 >
-                         <div >
-                              <Caption >
-                                   9567 Turner Trace Apt. 466 North Willie, BC C3G8A4
-                              </Caption >
-                              <Caption >
-                                   +21 123 456 5523
-                              </Caption >
-                              <Caption >
-                                   info@bexar.com
-                              </Caption >
-                         
-                         </div >
-                    </$Info >
-                    <$NewsLetter >
-                         <H3 >
-                              SUBSCRIBE NEWSLETTER
-                         </H3 >
-                         <div >
-                              <FormInput
-                                   // Ref = { inputElement }
-                                   name = "email"
-                                   hasIcon
-                                   type = "text"
-                                   placeholder = "Enter your email address "
-                                   required
-                                   // onMouseEnter = { () => {
-                                   //      inputElement.current.focus()
-                                   // } }
-                              
+               </$Info >
+               <$Symbol >
+                    <$Symbol1 >
+                         <$ImageBox >
+                              <Image
+                                   src = { "/images/nemad1.png" }
+                                   
+                                   alt = { "بنر" }
+                                   fill
+                                   objectPosition = { "50% 50%" }
+                                   sizes = "(max-width: 768px) 100vw,
+                                  (max-width: 1200px) 50vw,
+                                   33vw"
+                                   objectFit = { "contain" } quality = { 100 }
                               />
-                              <$SearchBox >
-                                   <CustomButton >
-                                        <Caption >
-                                             SERVICES
-                                        </Caption >
-                                   </CustomButton >
-                              </$SearchBox >
-                         </div >
+                         </$ImageBox >
                     
-                    </$NewsLetter >
+                    </$Symbol1 >
+                    <$Symbol2 >
+                         <$ImageBox >
+                              <Image
+                                   src = { "/images/nemad2.png" }
+                                   
+                                   alt = { "بنر" }
+                                   fill
+                                   objectPosition = { "50% 50%" }
+                                   sizes = "(max-width: 768px) 100vw,
+                                  (max-width: 1200px) 50vw,
+                                   33vw"
+                                   objectFit = { "contain" } quality = { 100 }
+                              />
+                         </$ImageBox >
+                    
+                    </$Symbol2 >
+                    <$Symbol3 >
+                         <$ImageBox >
+                              <Image
+                                   src = { "/images/nemad3.png" }
+                                   
+                                   alt = { "بنر" }
+                                   fill
+                                   objectPosition = { "50% 50%" }
+                                   sizes = "(max-width: 768px) 100vw,
+                                  (max-width: 1200px) 50vw,
+                                   33vw"
+                                   objectFit = { "contain" } quality = { 100 }
+                              />
+                         </$ImageBox >
+                    
+                    </$Symbol3 >
+                    <$Symbol4 >
+                         <$ImageBox >
+                              <Image
+                                   src = { "/images/nemad4.png" }
+                                   
+                                   alt = { "بنر" }
+                                   fill
+                                   objectPosition = { "50% 50%" }
+                                   sizes = "(max-width: 768px) 100vw,
+                                  (max-width: 1200px) 50vw,
+                                   33vw"
+                                   objectFit = { "contain" } quality = { 100 }
+                              />
+                         </$ImageBox >
+                    
+                    </$Symbol4 >
                
-               </$Box >
+               </$Symbol >
                <$CopyRight >
                     <Caption >
-                         
-                         Copyright © Vista. All rights reserved. Legal notice
+                         کلیه حقوق متعلق به شرکت ویستا است.
                     </Caption >
                </$CopyRight >
+          
           </$Wrapper >
      );
 }
@@ -146,198 +173,181 @@ function Footer() {
 export default Footer;
 
 const $Wrapper = styled.footer`
-     height                : 70vh;
-     padding               : 0 10%;
-     background            : ${ p => p.theme.primaryColorDarker };
-     margin-top            : 15vh;
      display               : grid;
-     grid-template-columns : 50% 40%;
-     border                : ${ p => p.theme.border.borderDark };
-     align-content         : center;
-     justify-content       : center;
-     align-items           : center;
-     grid-column-gap       : 10%;
+     margin-top            : 15vh;
+     justify-content       : space-between;
+     grid-gap              : 2rem;
      position              : relative;
-     grid-row-gap          : 10rem;
-     @media only screen and (max-width : 40em) {
-          padding               : 0 5%;
-          grid-row-gap          : 5%;
-
-          grid-template-columns : 1fr;
+     text-align            : right;
+     grid-template-columns :1.5fr repeat(4, 1fr);
+     @media only screen and ${ device.tabletS } {
+          grid-template-columns : repeat(2, 1fr);
 
           }
 
+     h1 {
+          font-size : 1.6rem;
+          color     : ${ p => p.theme.textColorDark };
 
+          }
 
 `
+const $About = styled.div`
+     display         : grid;
+     justify-content : start;
+     align-content   : start;
+     text-align      : justify;
+     grid-gap        : .8rem;
+     @media only screen and ${ device.tabletS } {
+          display : none;
 
-const $BrandDes = styled.div`
-     display      : grid;
-     text-align   : left;
-     grid-row-gap : 2.4rem;
-     > * {
-          :nth-child(1) {
+          }
 
-               width:20rem;
-               height:100%;
-           
-            
-               }
-
+     svg {
+          width  : 11rem;
+          height : 11rem;
           }
 
      p {
-          color       : ${ p => p.theme.white };
-          font-size   : 2.4rem;
-          text-align  : left;
-          line-height : 120%;
-       
+          width : 90%;
           }
+`
+const $QuickAccess = styled.div`
+     display         : grid;
+     justify-content : start;
+     align-content   : start;
+     grid-gap        : 1.8rem;
+     @media only screen and ${ device.tabletS } {
+          grid-column : 1/2;
+          grid-row    : 1/2;
+
+          }
+
+`
+const $Products = styled.div`
+     display         : grid;
+     justify-content : start;
+     align-content   : start;
+     grid-gap        : 1.8rem;
+     @media only screen and ${ device.tabletS } {
+          grid-column : 2/3;
+          grid-row    : 1/2;
+
+          }
+
+`
+const $Info = styled.div`
+     display         : grid;
+     justify-content : start;
+     align-content   : start;
+     grid-gap        : 1.8rem;
+     @media only screen and ${ device.tabletS } {
+          grid-column : 1/-1;
+          grid-row    : 2/3;
+
+          }
+
+`
+const $Item = styled.div`
+     display : flex;
+     gap     : 1.8rem;
 `
 const $SocialMedia = styled.div`
-     display     : flex;
-     align-items : center;
-     font-size   : 1.6rem;
-     font-weight : 500;
-     color       : ${ p => p.theme.white };
-
-     > * {
-               //background  : ${ p => p.theme.black };
-          display         : flex;
-          justify-content : space-between;
-          margin-left     : 1.2rem;
-
-          outline-style   : outset;
-          width           : 3rem;
-          height          : 3rem;
-          fill            : ${ p => p.theme.white };
-
-          }
-
-
-`
-
-const $Box = styled.div`
-     display               : grid;
-     grid-template-columns : repeat(2, 1fr);
-     grid-gap              : 2.4rem;
-     @media only screen and (max-width : 40em) {
-          grid-gap              : 0;
-          }
-`
-
-
-const $quickAccess = styled.div`
-     grid-column : 1/2;
-
-     h3 ,a{
-          font-weight   : 500;
-          font-size     : 2.4rem;
-          margin-bottom : 2.4rem;
-          }
-
-     > * {
-          :nth-child(2) {
-               display      : grid;
-               grid-row-gap : 1.6rem;
-               color        : ${ p => p.theme.white };
-
-               }
-p{
-     text-align:left;
-     }
-          }
-          a {
-               opacity : .5;
-               color        : ${ p => p.theme.white };
-               font-size:1.8rem;
-               line-height: 120%;
-               text-align:left;
-
-               :hover {
-                    opacity : 1;
-
-                    }
-               }
-
-`
-
-const $Info = styled.div`
-     grid-column : 2/3;
-
-     h3 {
-          font-weight   : 500;
-          font-size     : 2.4rem;
-          margin-bottom : 2.4rem;
-          }
-
-     > * {
-          :nth-child(2) {
-               display      : grid;
-               grid-row-gap : 2.4rem;
-               color        : ${ p => p.theme.white };
-
-               p {
-                    font-size   : 1.8rem;
-                    line-height : 120%;
-                    opacity     : .5;
-
-                    :hover {
-                         opacity : 1;
-
-                         }
-                    }
-
-               }
-
-          }
-`
-const $NewsLetter = styled.div`
-     grid-column    : 1/-1;
-     width          : 100%;
-     display        : flex;
-     position       : relative;
-     flex-direction : column;
-
-     h3 {
-          font-weight   : 500;
-          font-size     : 2.4rem;
-          margin-bottom : 2.4rem;
-          }
+     display : flex;
+     gap     : .8rem;
 
      div {
-          height : 6rem
-          }
-
-     @media only screen and (max-width : 40em) {
-        margin-top: 2vh;
+          width           : 4rem;
+          height          : 4rem;
+          background      : ${ p => p.theme.greyBoxBG };
+          border-radius   : ${ p => p.theme.border.borderRadius2 };
+          display         : flex;
+          align-items     : center;
+          align-content   : center;
+          justify-content : center;
           }
 
 `
-
-
-const $SearchBox = styled.div`
-     height       : 5rem;
-     width        : 30%;
+const $Symbol = styled.div`
+     display      : grid;
+     gap          : 2rem;
+     width        : 13rem;
      justify-self : end;
-     position     : absolute;
-     right        : 0;
-     bottom       : 0;
+     @media only screen and ${ device.tabletS } {
+          grid-column       : 1/-1;
+          grid-row          : 3/4;
+          height            : 8rem;
+          width             : 100%;
+          grid-auto-flow    : column;
+          justify-self      : end;
+          gap               : 1rem;
+
+          grid-auto-columns : 20%;
+
+          }
 
 
 
 `
+const $Symbol1 = styled.div`
+     position      : relative;
+     background    : ${ p => p.theme.greyBoxBG };
+     border-radius : ${ p => p.theme.border.borderRadius1 };
+`
+const $Symbol2 = styled.div`
+     position      : relative;
+     background    : ${ p => p.theme.greyBoxBG };
+     border-radius : ${ p => p.theme.border.borderRadius1 };
+`
+const $Symbol3 = styled.div`
+     position      : relative;
+     background    : ${ p => p.theme.greyBoxBG };
+     border-radius : ${ p => p.theme.border.borderRadius1 };
+     display       : none;
+     @media only screen and ${ device.tabletS } {
+          display : block;
+
+          }
+`
+const $Symbol4 = styled.div`
+     position      : relative;
+     background    : ${ p => p.theme.greyBoxBG };
+     border-radius : ${ p => p.theme.border.borderRadius1 };
+     display       : none;
+     @media only screen and ${ device.tabletS } {
+          display : block;
+
+          }
+`
+
 
 const $CopyRight = styled.div`
-     position        : absolute;
-     bottom          : 0;
-     
-     width           : 100%;
-     display         : flex;
-     align-content   : center;
-     justify-content : center;
-     align-items     : center;
-     color           : ${ p => p.theme.white };
-     height          : 5rem;
-     background      : ${ p => p.theme.black };
+     grid-column : 1/-1;
+     border-top  : .1rem solid ${ p => p.theme.primaryColorDark };
+
+     p {
+          margin    : 2rem 0;
+          font-size : 1.4rem;
+          }
 `
+
+const $ImageBox = styled.div`
+     position   : absolute;
+     top        : 0;
+     right      : 0;
+     width      : 100%;
+     height     : 100%;
+     text-align : center;
+     border-top : .1rem solid ${ p => p.theme.greyBoxBG };
+     @media only screen and ${ device.tabletS } {
+          transform : scale(.8);
+          }
+
+     > * {
+
+          border-radius : ${ p => p.theme.border.borderRadius1 };
+
+          }
+
+`
+

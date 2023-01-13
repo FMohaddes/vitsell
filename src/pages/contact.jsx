@@ -8,7 +8,7 @@ import styled from "styled-components";
 export default function Contact() {
      return (
           <>
-               <Layout title = { "Vista - contact page" } >
+               <Layout title = { "Vitsell - contact page" } >
                     <Header type = "image" text = { "CONTACT US" }/>
      
                     <$Wrapper>

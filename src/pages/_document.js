@@ -37,10 +37,11 @@ class MyDocument extends Document {
      }
      
      render() {
-          const { __NEXT_DATA__ } = this.props;
-          const dir = __NEXT_DATA__.locale === "fa" ? "rtl" : "ltr";
+          // const { __NEXT_DATA__ } = this.props;
+          // const dir = __NEXT_DATA__.locale === "fa" ? "rtl" : "ltr";
+          const dir = 'rtl';
           return (
-               <Html dir = { dir } lang = { __NEXT_DATA__.locale } >
+               <Html dir = { dir } lang = {"fa-IR" } >
                     <Head >
                          { this.props.styleTags }
                          <link

@@ -34,7 +34,7 @@ export const GlobalStyle = createGlobalStyle`
           @media only screen and ${ device.tablet } {
                font-size : var(--rem-md);
                }
-          @media only screen and ${ device.mobileL } {
+          @media only screen and ${ device.tabletS } {
                font-size : var(--rem-sm);
                }
           @media only screen and ${ device.mobileM } {
@@ -58,22 +58,31 @@ export const GlobalStyle = createGlobalStyle`
      body {
           overflow-x                  : hidden;
           box-sizing                  : border-box;
-          line-height                 : 120%;
+          line-height                 : 150%;
           text-align                  : justify;
           text-justify                : inter-word;
           font-weight                 : 400;
-          
           background                  : #FFF;
-          padding       : 3.2rem 12rem 0;
-
+          padding                     : 3.2rem 12rem 0;
+          color                       :#333;
           font-family                 : 'IRANSans', sans-serif;
           -webkit-tap-highlight-color : transparent;
+          @media only screen and ${ device.tablet } {
+               padding                     : 1rem 5.8rem 0;
+
+               }
+          @media only screen and ${ device.mobileS } {
+               padding                     : 1.2rem 2.4rem 0;
+
+               }
+
           :focus {
-               outline: none;
+               outline : none;
                }
           }
-     a{
-          color           : black;
+
+     a {
+          color : black;
 
           }
 
@@ -115,18 +124,18 @@ export const GlobalStyle = createGlobalStyle`
           }
 
      @font-face {
-          font-family  : 'IRANSansLight';
+          font-family  : 'IRANSansBold';
           font-style   : normal;
           src          : url(/fonts/iranSans/IRANSans_Bold.ttf) format('truetype');
           font-display : swap;
           }
+
      @font-face {
-          font-family  : 'IRANSansBold';
+          font-family  : 'IRANSansLight';
           font-style   : normal;
           src          : url(/fonts/iranSans/IRANSans_Light.ttf) format('truetype');
           font-display : swap;
           }
-
 
      /* The emerging W3C standard */
      * {
@@ -144,21 +153,21 @@ export const GlobalStyle = createGlobalStyle`
           }
 
      *::-webkit-scrollbar-thumb {
-          background-color : #293c53;
+          background-color : #C2123C;
           border-radius    : .5rem;
-          border           : #443544;
           }
 
      ::-webkit-scrollbar-thumb:hover {
-          background : #37506f;
+          background : #C2123C;
           }
 
      ::selection {
           background-color : #000;
           color            : #F5F6FA;
           }
+
      #nprogress .bar {
-          background: ${ secondary[500] };
+          background : ${ secondary[ 500 ] };
           }
 
      .MuiModal-root.MuiPopover-root.MuiMenu-root .MuiPaper-root {

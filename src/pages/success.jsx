@@ -47,7 +47,7 @@ export default function Success() {
      
      return (
           <>
-               <Layout title = { "Vista - success page" } >
+               <Layout title = { "Vitsell - success page" } >
                     <Header type = "image" text = { "SUCCESS" } />
                     <$Wrapper >
                          
@@ -183,7 +183,7 @@ const $Orders = styled.div`
           margin        : 0 auto;
           align-content : center;
           width         : 100%;
-          background    : ${ p => p.theme.primaryColorDarker };
+          background    : ${ p => p.theme.primaryColorDark };
           border        : .0 .1rem solid transparent;
           }
 
