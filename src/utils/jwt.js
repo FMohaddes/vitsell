@@ -20,7 +20,7 @@ const isValidToken = (accessToken) => {
 const setSession = (accessToken) => {
   if (accessToken) {
     localStorage.setItem('accessToken', accessToken);
-    axios.defaults.baseURL = 'https://vitana-backend.ryt-service.ir/front/';
+    axios.defaults.baseURL = '';
     // This function below will handle when token is expired
     const { exp } = jwtDecode(accessToken);
     // handleTokenExpired(exp);

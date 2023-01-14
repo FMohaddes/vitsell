@@ -153,7 +153,7 @@ const $Markets = styled.div`
           gap           : .8rem;
           border-radius : ${ p => p.theme.border.borderRadius2 };
 
-          background    : rgba(255, 255, 255, 0.08);
+          background    : rgba(255, 255, 255, 0.09);
           height        : 5rem;
           justify-content : center;
           align-content   : center;
