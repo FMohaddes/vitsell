@@ -1,8 +1,7 @@
-import React , { useState } from "react"
+import React from "react"
 import styled from "styled-components";
 import Image from "next/image";
-import CustomButton from "../common/customButtons";
-import { BodyIntro , Caption , H1 , H2 } from "../../styles/global";
+import { Caption } from "../../styles/global";
 import { numberSeparator } from "../../utils/formatNumber";
 
 ProductCard.defaultProps = {

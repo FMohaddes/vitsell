@@ -49,18 +49,18 @@ export default function Header( { type , text } ) {
                     percent:34,
                     sale:4300000,
                     title   : "همزن برقی sanford" ,
-     
-     
+                    
+                    
                } ,   {
                     src   : "/images/blender.png" ,
                     id    : 0 ,
                     price:4343000,
                     percent:34,
                     sale:4300000,
-               title   : "همزن برقی sanford" ,
-          
-          
-          } ,
+                    title   : "همزن برقی sanford" ,
+                    
+                    
+               } ,
           
           ] ,
      );
@@ -96,7 +96,7 @@ export default function Header( { type , text } ) {
                     </$AdsSlider >
                     <$ProductsSlider >
                          <Swiper
-                         
+                              
                               modules = { [ Navigation , Autoplay ] }
                               spaceBetween = { 30 }
                               // centeredSlides={true}
@@ -145,38 +145,23 @@ const $Wrapper = styled.header`
 
      .swiper-button-prev {
           color: transparent !important;
+          background : url('/images/Arrow.svg') no-repeat;
 
           right: 0;
+          
+          height: 100px;
+          transform: translate(0%, -20px);
 
-          ::before {
-               
-               content            : '';
-               display            : inline-block;
-               margin-left: -110%;
-
-               background : url('/images/Arrow.svg');
-               height             : 9.3rem;
-               width              : 3.5rem;
-               }
           }
 
      .swiper-button-next {
           //visibility: hidden;
           color: transparent !important;
-
+          background : url('/images/Arrow.svg') no-repeat;
+      
+          height: 100px;
+          transform: scale(-1) translate(0%, 30px);
           left: 0;
-
-          ::before {
-
-               content            : '';
-               display            : inline-block;
-               margin-left: -110%;
-               transform: scale(-1);
-
-               background : url('/images/Arrow.svg');
-               height             : 9.3rem;
-               width              : 3.5rem;
-               }
           }
      .swiper-pagination-bullet {
           background : ${ p => p.theme.black };
@@ -207,7 +192,7 @@ const $ProductsSlider = styled.div`
      border-radius : ${ p => p.theme.border.borderRadius1 };
      overflow      : hidden;
      @media only screen and ${ device.tablet } {
-         display: none;
+          display: none;
 
           }
 

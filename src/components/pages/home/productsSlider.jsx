@@ -123,8 +123,8 @@ export default function ProductsSlider( { popular } ) {
 const $Wrapper = styled.section`
      grid-column : 1/-1;
      width       : 100%;
+     
      display     : grid;
-
      position    : relative;
 
      .swiper {
@@ -140,49 +140,24 @@ const $Wrapper = styled.section`
           }
 
      .swiper-button-prev {
-          color : transparent !important;
+          color: transparent !important;
+          background : url('/images/Arrow.svg') no-repeat;
 
-          right : 0;
+          right: 0;
 
-          ::before {
+          height: 100px;
+          transform: translate(0%, -20px);
 
-               content     : '';
-               display     : inline-block;
-               margin-left : -110%;
-
-               background  : url('/images/Arrow.svg');
-               height      : 9.3rem;
-               width       : 3.5rem;
-               @media only screen and ${ device.tablet } {
-                    margin-left : -80%;
-                    width       : 4rem;
-
-                    }
-               }
           }
 
      .swiper-button-next {
           //visibility: hidden;
-          color : transparent !important;
+          color: transparent !important;
+          background : url('/images/Arrow.svg') no-repeat;
 
-          left  : 0;
-
-          ::before {
-
-               content     : '';
-               display     : inline-block;
-               margin-left : -110%;
-               transform   : scale(-1);
-
-               background  : url('/images/Arrow.svg');
-               height      : 9.3rem;
-               width       : 3.5rem;
-               @media only screen and ${ device.tablet } {
-                    margin-left : -85%;
-                    height      : 9.3rem;
-                    width       : 4rem;
-                    }
-               }
+          height: 100px;
+          transform: scale(-1) translate(0%, 30px);
+          left: 0;
           }
 
      .swiper-pagination-bullet {
